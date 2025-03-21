@@ -1,0 +1,921 @@
+/* InputForm.jsx */
+.main-content {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+  margin-left: 195px;
+  padding: 10px;
+ 
+}
+
+/* Form Styling */
+.form-container {
+  background: #ffffff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 470px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+/* Input Fields */
+input,
+select {
+  width: 95%;
+  padding: 12px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: border 0.3s;
+}
+
+input:focus,
+select:focus {
+  border-color: #393635;
+  outline: none;
+}
+
+
+button {
+  padding: 12px;
+  width: 120px;
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: linear-gradient(45deg, #ff416c, #ff4b2b);
+  transform: scale(1.05);
+} 
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+}
+
+td input {
+  /* width: 110%; */
+  padding: 6px;
+  border: none;
+  text-align: center;
+  background: transparent;
+  font-size: 16px;
+  color: #333;
+}
+
+td input:focus {
+  outline: 2px solid #ff4b2b;
+}
+
+/* Zebra Striping for Tables */
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #d6eaff;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .form-container {
+    width: 90%;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  td input {
+    font-size: 14px;
+  }
+}
+
+.result-preview {
+  width: 60%; /* Adjust for better centering */
+  margin: 20px auto; /* Centers horizontally */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: 25%;
+  padding: 20px;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Ensure table is properly centered */
+.result-preview table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+/* Fix text alignment inside table */
+.result-element td {
+  text-align: left; /* Align table content to the left */
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+h1 {
+  color: white;
+}
+
+h2 {
+  color: white;
+}
+
+h3 {
+  color: white;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* Center items horizontally */
+  gap: 15px; /* Add space between elements */
+}
+
+.custom-input {
+  width: 300px !important;
+  height: 20px;
+  font-size: 15px;
+  padding: 5px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+.generate-template-btn {
+  width: 300px;
+  height: 40px;
+  font-size: 18px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.generate-template-btn:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+
+/* CoInput.jsx */
+.co-checkbox-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Space between elements */
+  width: 00%;
+  padding: 20px;
+}
+
+.co-checkbox {
+  text-align: center;
+  padding: 10px;
+  flex: 1; /* Makes it flexible */
+  max-width: 500px; /* Adjust as needed */
+}
+
+.co-submit-btn {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  color: black;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 200px;
+  text-align: left;
+  transition: all 0.3s ease-in-out;
+  margin-left: 1%;
+}
+
+.co-submit-btn:hover {
+  background: linear-gradient(45deg, #ff416c, #ff4b2b);
+  transform: scale(1.05);
+}
+
+
+/* COInput.jsx */
+/* Layout Container */
+.layout-container {
+  margin-top: 5%;
+  display: flex;
+  height: 100vh; /* Full height of the viewport */
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0; /* Align to the top of the viewport */
+  width: 250px;
+  height: 100vh; /* Full viewport height */
+  background: linear-gradient(to right, #1e3c72, #2a5298);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; /* Enable scrolling if content overflows */
+}
+
+/* Button Container */
+.button-container {
+  margin-top: 15%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Space between buttons */
+  width: 93%;
+}
+
+/* Toggle Buttons */
+.toggle-btn {
+  width: 100%;
+  padding: 10px 15px; /* Padding for better spacing */
+  background-color: #007bff; /* Blue background */
+  color: white; /* White text */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 14px; /* Font size */
+  text-align: left; /* Align text to the left */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover Effect */
+.toggle-btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Active Button Style */
+.toggle-btn.active {
+  background-color: #004080; /* Even darker blue for active state */
+}
+
+/* Main Content Area */
+.main-content {
+  margin-left: 250px; /* Offset by sidebar width */
+  flex: 1; /* Take up remaining space */
+  padding: 20px;
+  overflow-y: auto; /* Enable scrolling for long content */
+}
+
+/* Buttons */
+.toggle-buttons {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Space between buttons */
+}
+
+/* Tables */
+table {
+  width: 100%; /* Full width */
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+th {
+  background-color: #f8f9fa; /* Light gray background for headers */
+}
+
+
+/* FacultyProfile.jsx */
+
+.sidebar-profile {
+  position: fixed;
+  left: 0;
+  top: 0; /* Align to the top of the viewport */
+  width: 170px;
+  height: 100vh; /* Full viewport height */
+  background: linear-gradient(to right, #1e3c72, #2a5298);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  /* gap: 5px; */
+  align-items: center;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; /* Enable scrolling if content overflows */
+}
+
+/* Sidebar buttons */
+.sidebar-button-faculty {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: linear-gradient(45deg, #ff416c, #ff4b2b);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: left;
+}
+
+/* Ensuring content is properly positioned */
+.content {
+  margin-left: 30%; 
+  padding: 20px;
+  align-items: center;
+}
+
+
+
+/* StudentInput.jsx */
+.main-content {
+  padding: 20px;
+  overflow-y: auto;
+  
+}
+
+/* Sidebar container */
+.sidebar {
+  position: fixed;
+  left: 0;
+  width: 150px;
+  height: 100%;
+  background: linear-gradient(to right, #1e3c72, #2a5298);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar buttons */
+/* .sidebar button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.sidebar button:hover {
+  background-color: #0056b3;
+  color: white;
+} */
+
+/* Specific button styles */
+/* .back-btn {
+  background-color: #007bff;
+  color: white;
+  text-align: left;
+} */
+
+/* .logout-btn {
+  background-color: #dc3545;
+  color: white;
+  text-align: left;
+  margin-bottom: 600px;
+} */
+
+/* .student-records-btn{
+  background-color: #28a745;
+  color: white;
+  text-align: left;
+} */
+
+.back-btn-from-student{
+  width: 20%;
+  margin-left: 80%;
+}
+
+/* .student-container{
+  width: 97%;
+  margin-right: 10%;
+} */
+
+/* .assessment-type{
+  margin-left: 2%;
+  color: white;
+} */
+
+/* .question-button{
+  padding: 12px;
+  width: 200px;
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.question-button:hover {
+  background: linear-gradient(45deg, #ff416c, #ff4b2b);
+  transform: scale(1.05);
+} */
+
+.paste-class{
+  width: 93%;
+}
+
+.process-data-btn{
+  margin-top: 2%;
+  width: 80%;
+  margin-left: 10%;
+  
+}
+
+/* AdminProfile.jsx */
+.admin-profile {
+  display: flex;
+  flex-direction: row;
+  margin-left: 200px; /* Add this to push content rightward to avoid overlap with sidebar */
+  width: 100%;
+}
+
+/* Admin Header */
+.admin-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+  padding-top: 10px; /* Add padding if necessary */
+}
+
+/* Title in the header */
+.admin-site-title {
+  background-color: #007bff12;
+  font-size: 30px;
+  color: white;
+  text-align: center;
+  width: 100%; /* Ensure it's centered */
+  margin-right: 20%; /* Reset any default margin */
+}
+
+/* Sidebar container */
+.admin-sidebar {
+  position: fixed;
+  left: 0;
+  width: 170px;
+  height: 100%;
+  background: linear-gradient(to right, #1e3c72, #2a5298);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: flex-start;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  top: 0;
+}
+
+/* Dropdown styles */
+.dropdown {
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.dropdown-item {
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #34495e;
+}
+
+/* Level dropdown styles */
+.level-dropdown {
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.level-dropdown .dropdown-item {
+  padding: 10px;
+}
+
+.level-dropdown .dropdown-item:hover {
+  background-color: #2980b9;
+}
+
+.admin-sidebar .sidebar-button {
+  padding: 12px;
+  width: 145px;
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  text-align: left;
+}
+
+.admin-sidebar .sidebar-button:hover {
+  background: linear-gradient(45deg, #ff416c, #ff4b2b);
+  transform: scale(1.05);
+}
+
+/* Department dropdown toggle */
+.admin-sidebar-button {
+  padding: 12px;
+  width: 120px;
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.admin-sidebar-button:hover {
+  background: linear-gradient(45deg, #ff416c, #ff4b2b);
+  transform: scale(1.05);
+}
+
+/* Admin Profile content */
+.admin-profile .admin-sidebar {
+  top: 0;
+  padding-top: 30px;
+}
+
+
+/* PGPage */
+
+.pg-sidebar {
+  position: fixed;
+  left: 0;
+  width: 170px;
+  height: 100%;
+  background: linear-gradient(to right, #1e3c72, #2a5298);
+  padding: 20px;
+  flex-direction: column;
+  gap: 15px;
+  align-items: flex-start;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  top: 0;
+}
+
+.sidebar-title {
+  font-size: 30px;
+  color: white;
+  text-align: center;
+  width: 100%; 
+  margin-left: 50%; 
+  display: flex;
+  background-color: #007bff12;
+}
+
+.sidebar-item {
+  margin: 10px 0;
+}
+
+.sidebar-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  text-align: left;
+}
+
+.sidebar-btn:hover {
+  background: linear-gradient(45deg, #ff416c, #ff4b2b);
+  transform: scale(1.05);
+}
+
+.dropdown-list {
+  list-style-type: none;
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.dropdown-link {
+  text-decoration: none;
+  color: #ecf0f1;
+  display: block;
+  padding: 8px ;
+}
+
+.dropdown-link:hover {
+  background-color: #34495e;
+}
+
+.logout-btn {
+  background-color: #e74c3c;
+  color: #ecf0f1;
+  font-size: 18px;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  margin-top: auto;
+  border-radius: 5px;
+  text-align: left;
+}
+
+.logout-btn:hover {
+  background-color: #c0392b;
+}
+
+.assessment-form {
+  width: 60%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2, h3 {
+  text-align: center;
+}
+
+.form-group {
+  margin: 10px 0;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+
+
+/* CoInput.jsx */
+
+.co-checkbox-container {
+  width: 94%;
+  margin: auto;
+  text-align: center;
+}
+
+.co-checkbox {
+  max-width: 100%;
+  overflow-x: auto; 
+  margin-bottom: 20px;
+}
+
+table {
+  width: 90%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid black;
+  text-align: center;
+}
+
+input[type="number"] {
+  width: 100px;
+  text-align: center;
+}
+
+.co-submit-btn {
+  padding: 10px 15px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.submit-buttons{
+  width: 65%;
+  border-collapse: collapse;
+  margin-left: 320px;
+}
+/* Dashboard.jsx */
+
+/* Container for the entire dashboard */
+.dashboard-container {
+  display: flex; /* Use flexbox to align sidebar and main content */
+}
+
+/* Sidebar styling */
+.dashboard-menu-container {
+  width: 170px; /* Set a fixed width for the sidebar */
+  background: linear-gradient(to right, #1e3c72, #2a5298);
+  padding: 20px; /* Add some padding */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  height: 100vh; /* Full height of the viewport */
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  align-items: flex-start; /* Align buttons to the left */
+}
+
+/* Button styling */
+.dashboard-button {
+  width: 100%; /* Make buttons take full width of the sidebar */
+  padding: 10px 15px; /* Add padding for better clickability */
+  margin: 5px 0; /* Add some margin between buttons */
+  background-color: #007bff; /* Blue background color */
+  color: white; /* White text color */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Add rounded corners */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  text-align: left; /* Align text to the left */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover effect for buttons */
+.dashboard-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+
+/* CODataDisplayPage.css */
+
+/* Existing container class */
+.container-co {
+  display: flex;
+  height: 100vh;
+  
+}
+
+/* Existing sidebar class */
+.sidebar-co {
+  width: 170px;
+  color: black;
+  padding: 10px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* New or existing sidebar button class */
+.sidebar-button-co {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.sidebar-button-co:hover {
+  background-color: #0056b3;
+}
+
+/* Existing content class */
+.content {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  
+}
+
+/* Existing co-data-entry class */
+.co-data-entry {
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Existing table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+
+
+/* SplitingMarks.css */
+
+.container-splitMarks {
+  text-align: center;
+  overflow-x: auto; /* Enable horizontal scrolling for the container */
+  max-width: 100%; /* Ensure the container doesn't exceed the page width */
+}
+
+.add-row-button {
+  width: 24%;
+  margin-bottom: 10px;
+  padding: 8px;
+  background-color: #e74c3c;
+  color: #ecf0f1;
+  border: none;
+  cursor: pointer;
+}
+
+.save-data-button {
+  width: 24%;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #e74c3c;
+  color: #ecf0f1;
+  border: none;
+  cursor: pointer;
+}
+
+.table-of-split {
+  max-width: 100%; /* Table won't exceed the container width */
+  width: auto; /* Table adjusts its width based on content */
+  text-align: center;
+  border-collapse: collapse;
+  table-layout: auto; /* Allows columns to adjust based on content */
+}
+
+.table-of-split thead tr {
+  background-color: #e74c3c;
+  color: black;
+}
+
+.table-of-split th,
+.table-of-split td {
+  border: 1px solid black;
+  padding: 8px;
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflow */
+  text-overflow: ellipsis; /* Show ellipsis for overflow text */
+}
+
+.table-of-split input {
+  width: 100%; /* Input takes full width of the cell */
+  text-align: center;
+  border: none;
+  background: transparent;
+}

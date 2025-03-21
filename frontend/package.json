@@ -1,0 +1,23 @@
+{
+  "name": "auth-system",
+  "version": "1.0.0",
+  "main": "src/main.jsx",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "dev": "vite"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "papaparse": "^5.5.2",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.29.0",
+    "recharts": "^2.15.1",
+    "vite": "^3.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^2.2.0"
+  }
+}

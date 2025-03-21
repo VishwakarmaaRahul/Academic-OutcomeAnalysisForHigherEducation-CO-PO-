@@ -1,0 +1,133 @@
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to right, #1e3c72, #2a5298);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Glassmorphism Effect */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  backdrop-filter: blur(8px);
+}
+
+/* Auth Form with Glass Effect */
+.auth-form {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+/* Form Title */
+.auth-form h2 {
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Inputs & Select Fields */
+.auth-form input,
+.auth-form select {
+  width: 95%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.676);
+  color: rgba(255, 255, 255, 0.699);
+  outline: none;
+  transition: all 0.3s;
+}
+
+/* Input Focus Effect */
+.auth-form input:focus,
+.auth-form select:focus {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Neumorphic Button */
+.auth-button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 5px 15px rgba(255, 75, 43, 0.3);
+}
+
+
+
+/* Button Hover Effect */
+.auth-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(255, 75, 43, 0.5);
+}
+
+/* Messages */
+.error-message {
+  color: #ff4d4d;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.success-message {
+  color: #28a745;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+/* Links */
+.auth-link {
+  margin-top: 1rem;
+  color: #ffffff;
+  font-size: 0.9rem;
+}
+
+.auth-link a {
+  color: #ff416c;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.auth-link a:hover {
+  text-decoration: underline;
+}
+
+/* Site Title with Gradient */
+.site-title, .site-title-signup {
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
